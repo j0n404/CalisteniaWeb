@@ -1,0 +1,96 @@
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style_nav.css' %}">
+{% endblock css %}
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger logo letra-fuente" href=" {% url 'home'%} "> <i
+                class=" fas fa-home"></i>Calistenia Web</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger letra-fuente" href="{% url 'home' %}">
+                        Inicio</a>
+                </li>
+
+
+
+
+                {% if user.is_staff %}
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger letra-fuente" href="{% url 'adm_usuarios' %}">Administrar</a>
+                </li>
+                {% endif %}
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle letra-fuente" href="" id="navbarDropdownPortfolio"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Ejercicios
+                    </a>
+                    <div class="dropdown-menu bg-success " aria-labelledby="navbarDropdownPortfolio">
+                        <a style="color: white;" class="dropdown-item item-menu" href="{% url 'espalda' %}">Espalda y biceps</a>
+                        <a class="dropdown-item item-menu" href="{% url 'triceps' %}">Pectoral y triceps</a>
+                        <a class="dropdown-item item-menu" href="#">Piernas y abdomen</a>
+
+                    </div>
+                </li>
+
+
+
+
+                {% if user.is_authenticated %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle letra-fuente" href="#" id="navbarDropdownPortfolio"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user-circle"></i> {{user.username}}
+                    </a>
+                    <div class="dropdown-menu bg-success" aria-labelledby="navbarDropdownPortfolio">
+
+                        <a class="dropdown-item item-menu" href="{% url 'perfil' %}">
+                            <i class="far fa-user"></i> Perfil </a>
+                        <a class="dropdown-item item-menu" href="{% url 'editar_perfil' %}">
+                            <i class="fas fa-user-edit"></i> Editar perfil</a>
+
+                        <a class="dropdown-item item-menu" href="{% url 'logout' %}">
+                            <i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+                    </div>
+                </li>
+
+                {% else %}
+
+                <li class="nav-item">
+                    <a href="{% url 'login' %}" class="nav-link ">
+                        <i class=" img-buton fas fa-sign-in-alt"></i> Iniciar sesión
+                    </a>
+                </li>
+
+
+
+                <li class="nav-item">
+                    <a href="{% url 'registro' %}" style="border-radius: 0;"
+                        class="nav-link" id="btn-inicio">
+                        <i class="img-buton fas fa-user-plus"></i> Registrarse
+                    </a>
+
+                </li>
+
+
+                {% endif %}
+
+
+
+
+            </ul>
+        </div>
+    </div>
+</nav>

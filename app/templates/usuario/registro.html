@@ -1,0 +1,104 @@
+{% extends 'base.html' %}+
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/style_registro.css'%}">
+{% endblock css %}
+
+
+{% block contenido %}
+<div class="div" class="fondo-registro"></div>
+
+
+
+<div style="margin-top: 62px;" class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 mt-3">
+
+            <form class="form-container " id="form-register" method="POST">
+                {% csrf_token%}
+                <h3 class="tittle-center"> Registrarse</h3>
+                {% if error %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Error:</strong> {{error}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                
+                {% endif %}
+
+                <!-- NOMBRE DE USUARIO  -->
+                <div class="form-group">
+                    <i class="fas fa-user-circle"></i>
+                    <label class="">Nombre de usuario</label>
+                    <br>
+                    <input style="display: block; width: 100%;" type="text" name="username" minlength="4" required class="form-input"
+                        placeholder="Ingrese su nombre de usuario">
+                </div>
+
+                <!-- NOMBRE -->
+                <div class="form-group">
+                    <i class="fas fa-user"></i>
+                    <label>Nombre</label>
+                    <br>
+                    <input type="text" name="nombre" required class="form-input" required
+                        placeholder="Ingrese su nombre ">
+                </div>
+
+                <!-- APELLIDO -->
+                <div class="form-group">
+                    <i class="fas fa-user"></i>
+                    <label>Apellido</label>
+                    <br>
+                    <input type="text" name="apellido" required class="form-input" required
+                        placeholder="Ingrese su apellido">
+                </div>
+
+                <!-- CORREO ELECTORNICO -->
+                <div class="form-group">
+                    <i class="fas fa-envelope"></i>
+                    <label class="">Correo electronico</label>
+                    <br>
+                    <input type="email" name="email" required class="form-input" placeholder="Ingrese su email">
+                </div>
+
+
+                <!-- CONTRASEÑA -->
+                <div class="form-group">
+                    <i class="fas fa-key"></i>
+                    <label for="">Contraseña</label>
+                    <br>
+                    <input id="clave" type="password" minlength="6" name="contraseña" required class=" form-input"
+                        placeholder="Ingrese su contraseña">
+                    <br>
+                    <small id="passwordHelpInline" class="text-muted">
+                        La contraseña debe tener minimo 6 caracteres
+                    </small>
+                </div>
+
+                <!-- CONTRASEÑA 2 -->
+                <div class="form-group">
+                    <i class="fas fa-lock"></i>
+                    <label for="">Confirmar contraseña</label>
+                    <br>
+                    <input type="password" minlength="6" name="contraseña2" required class="form-input"
+                        placeholder="Re-ingrese su contraseña">
+
+                </div>
+
+
+                <button type="submit" id="btnRegistrar" class="btn btn-success btn-block"> <i
+                        class="fas fa-user-plus"></i>Registrarse</button>
+                <br>
+                <div class="tittle-center">
+                   <span> ¿Ya tienes cuenta? </span><a  href="{% url 'login' %}">Iniciar sesión</a>
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock contenido %}

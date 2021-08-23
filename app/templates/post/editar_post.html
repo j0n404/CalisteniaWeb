@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+
+{% block contenido %}
+<div style="margin-top: 80px;" class="container">
+    <div class="row bg-light mt-5">
+        <div class="col-12 ">
+            <h2 class="text-center">Editar publicación</h2>
+            <hr>
+        </div>
+        
+        <div class="col-12 col-md-7 p-3">
+            <h3>Foto</h3>
+            <img class="img-fluid" src="/media/{{post.foto_post}}" alt="">
+                 <p class="p-2 mt-3 text-muted"> creado el: {{post.created}}</p>
+
+        </div>
+
+        <div class="col-12 col-md-5 p-3 ">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <label for="title">Titulo</label>
+                <input class="form-control" id="title" name="titulo" type="text" value="{{post.titulo}}">
+    
+                <label for="descripcion">Descripción</label>
+                <textarea ype="text" style="max-height: 260px; min-height: 200px;" class="form-control mb-3"
+                    name="descripcion" value="{{post.descripcion}}" name="" id=""></textarea>
+    
+                <div class="col-12 d-flex justify-content-center">
+                    <input class="btn btn-success" type="submit" value="Guardar">
+                </div>
+            </form>
+            
+        </div>
+
+
+    </div>
+
+
+</div>
+{% endblock contenido %}

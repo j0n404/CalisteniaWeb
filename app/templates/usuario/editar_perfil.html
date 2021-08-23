@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style_profile.css' %}">
+{% endblock css %}
+    
+{% block contenido %}
+<div style="margin-top: 58px;" class="container">
+    <div class="row">
+        <div class="col-lg-3 col-12">
+
+            <div class="list-group flex-lg-column flex-row" id="lista" role="tablist">
+                <a  data-toggle="list" role="tab" aria-controls="edit_perfil"
+                    class="list-group-item list-group-item-action active " href="#edit_perfil">Editar perfil</a>
+                <a  data-toggle="list" role="tab" aria-controls="c_passwd"
+                    class="list-group-item list-group-item-action " href="#c_passwd">Cambiar contraseña</a>
+            </div>
+        </div>
+
+        <div class="col-lg-9 col-12 bg-light p-3">
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="edit_perfil" role="tabpanel"
+                    aria-labelledby="edit_perfil">
+
+                    <div class="col-12">
+                        <h3 class="text-center">Editar perfil</h3>
+                        <hr>
+                        <form id="form-register" method="POST">
+                            {% csrf_token %}
+                            <!-- NOMBRE -->
+                            <div class="form-group row justify-content-center">
+                                <label for="nombre" class="col-sm-2 col-12 col-form-label"> Nombre:</label>
+                                <div class="col-md-6 col-12">
+                                    <input type="text" class="form-control" value="{{usuario.first_name}}"
+                                        id="nombre" name="nombre">
+                                </div>
+                            </div>
+                            <!-- APELLIDO -->
+                            <div class="form-group row justify-content-center">
+                                <label for="" class="col-sm-2 col-12 col-form-label"> Apellido:</label>
+                                <div class="col-md-6 col-12">
+                                    <input type="text" class="form-control" name="apellido"
+                                        value="{{usuario.last_name}}">
+                                </div>
+                            </div>
+                            <!-- CORREO ELECTORNICO -->
+                            <div class="form-group row justify-content-center">
+                                <label for="" class="col-sm-2 col-12 col-form-label"> Email:</label>
+                                <div class="col-md-6 col-12">
+                                    <input type="email" class="form-control" name="email" value="{{usuario.email}}">
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <button type="submit" id="btnRegistrar" class="btn btn-sm btn-success mr-1"> <i
+                                        class="far fa-save"></i>
+                                    Guardar</button>
+                                <button type="reset" class="btn btn-sm btn-warning"> <i class="fas fa-times-circle"></i>
+                                    Cancelar
+                                </button>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+
+                <div class="tab-pane fade show " id="c_passwd" role="tabpanel" aria-labelledby="c_passwd">
+                    <div class="col-12">
+                        <h3 class="text-center">Cambiar contraseña</h3>
+                        <hr>
+                        <form action="{% url 'cambiar_clave' %}" id="cambiar_clave" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group row">
+                                <div class="col-md-6 col-12 mb-3">
+                                    <label for="contraseña">Contraseña</label>
+                                    <input class="form-control" placeholder="Contraseña" required id="clave"
+                                        type="password" minlength="6" name="contraseña" id="contraseña">
+
+                                </div>
+
+                                <div class="col-md-6 col-12">
+                                    <label for="">Confirmar contraseña</label>
+                                    <input placeholder="Confirmar contraseña" class="form-control" requiered
+                                        id="clave2" type="password" minlength="6" name="contraseña2"
+                                        class=" form-input">
+
+                                </div>
+                            </div>
+
+                            <div class="row ">
+                                <div class="col-12 d-flex justify-content-center">
+                                    <button type="submit" id="btnRegistrar" class="btn btn-sm btn-success"> <i
+                                            class="far fa-save"></i>
+                                        Guardar cambios</button>
+                                    <button type="reset" class="btn btn-sm btn-warning ml-1"> <i
+                                            class="fas fa-times-circle"></i> Limpiar
+                                    </button>
+                                </div>
+                            </div>
+
+
+
+
+                        </form>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% if exito %}
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Exito',
+            text: '{{exito}}',
+            confirmButtonColor: '#28a745',
+            timer: 3000
+        })
+    </script>
+{% endif %}
+
+{% if error %}
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: '¡Error!',
+            text: '{{error}}',
+            confirmButtonColor: '#28a745',
+            timer: 3000
+        })
+    </script>
+{% endif %}
+    
+
+
+
+
+</div>
+
+{% endblock contenido %}
+    

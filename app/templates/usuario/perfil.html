@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+
+{% block contenido %}
+<div style="margin-top: 40px;" class="container">
+
+    <header class="bg-succes text-center py-5 mb-4">
+        <div class="container">
+            <img class="rounded-circle" src="http://placehold.it/100x100" alt="">
+            <h1 class="font-weight-light">{{user.username}}</h1>
+            <a href="{% url 'crear_post' %}" class="nav-item">
+                <button class="btn btn-success btn-sm">
+                    <i class="fas fa-plus"></i> Nueva publicación</button>
+            </a>
+        </div>
+    </header>
+
+    
+    <!-- Page Heading -->
+    <h1 class="my-4 text-center"> Tus publicaciones</h1>
+    <hr>
+    <div class="row">
+        {% for p in entity %}
+        <div class="col-lg-6 mb-4">
+            <div style="max-width: 540; max-height: 450px;" class="card">
+                <a href=" {% url 'post' id=p.id %}"><img class="card-img" src="/media/{{p.foto_post}}" width="540" height="300" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href=" {% url 'post' id=p.id %}">
+                            <h3>{{p.titulo}}</h3>
+                        </a>
+
+                    </h4>
+                    <p class="card-text">{{p.descripcion}}</p>
+                    <small class="text-muted">{{p.created}} </small>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+    <!-- /.row -->
+
+    <!-- Pagination -->
+    {% include 'paginator.html' %}
+
+</div>
+
+
+
+{% if messages %}
+{% for m in messages %}
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Exito',
+            text: '{{m}}', 
+            showConfirmButton: false,
+            timer: 3000
+        })
+    </script>
+{% endfor %}
+
+{% endif %}
+
+
+{% endblock contenido %}
+    
+

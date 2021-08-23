@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+
+{% block contenido %}
+<div class="container">
+    <br>
+    <br>
+    <br>
+
+    <!-- Page Heading -->
+    <h1 class="my-4"> Publicaciones  de: @{{user.username}}</h1>
+
+    <div class="row">
+        {% for p in posts %}
+        <div class="col-lg-6 mb-4">
+            <div class="card h-100">
+                <a href="#"><img class="card-img-top " src="/media/{{p.foto_post}}" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <h3>{{p.titulo}}</h3>
+                    </h4>
+                    <h6><small>{{p.created}} </small></h6>
+                    <p class="card-text">{{p.descripcion}}</p>
+                    
+                </div>
+                <a href="{% url 'eliminar_post' id=p.id %}" class="btn btn-danger btn-block">Eliminar publicación</a>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+    <!-- /.row -->
+
+    
+
+</div>
+{% endblock contenido %}
+    

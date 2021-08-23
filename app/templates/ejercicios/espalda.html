@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+
+
+{% block contenido %}
+{% load static %}
+<div style="margin-top: 56px;" class="container">
+
+    <div class="row">
+
+        <!-- Portada -->
+        <div class="col-lg-8">
+
+            <!-- Titulo -->
+            <h1 class="mt-4">Ejercicios para espalda y biceps</h1>
+            <hr>
+            <!-- Imagen -->
+            <img class="img-fluid rounded" src="{% static 'img/Ejercicios/espalda/musculos-espalda.jpg'%}"
+                alt="">
+
+            <hr>
+            <!-- Contenido -->
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut,
+                error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni
+                recusandae laborum minus inventore?</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos
+                iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat.
+                Temporibus, voluptatibus.</p>
+
+            <!-- PRINCIPIANTES -->
+
+            <!-- Titulo -->
+            <h1 id="principiantes" class="mt-4">Ejercicio para principiantes</h1>
+            <hr>
+            <h4 style="padding-left: 5%;">Dominada australiana/Australian pull-up</h4>
+            <!-- Imagen -->
+            <img class="img-fluid rounded" src="{% static 'img/Ejercicios/espalda/australian.jpg'%}"
+                alt="">
+
+            <hr>
+
+            <!-- Contenido -->
+
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut,
+                error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni
+                recusandae laborum minus inventore?</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos
+                iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat.
+                Temporibus, voluptatibus.
+            </p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis
+                unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat
+                perspiciatis. Enim, iure!
+            </p>
+
+            <!-- INTERMEDIO -->
+
+            <!-- Titulo -->
+            <h1 id="intermedio" class="mt-4">Ejercicio de nivel Intermedio</h1>
+            <hr>
+            <h3 style="padding-left: 5%;">Dominada negativa</h3>
+            <!-- Imagen -->
+            <img class="img-fluid rounded" src="{% static 'img/Ejercicios/triceps/flexiones.JPG'%}" alt="">
+
+            <hr>
+
+            <!-- Contenido -->
+
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut,
+                error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni
+                recusandae laborum minus inventore?</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos
+                iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat.
+                Temporibus, voluptatibus.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis
+                unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat
+                perspiciatis. Enim, iure!</p>
+
+
+            <!-- AVANZADO -->
+                <h1 id="avanzado"></h1>
+            <!-- Titulo -->
+            <h1  class="mt-4">Ejercicio de nivel avanzado</h1>
+            <hr>
+            <h3 style="padding-left: 5%;">Dominadas/pull-up</h3>
+            <!-- Imagen -->
+            <img class="img-fluid rounded" src="{% static 'img/Ejercicios/espalda/dominada.jpg'%}" alt="">
+
+            <hr>
+
+            <!-- Contenido -->
+
+            <p class="lead">se denomina dominada a un ejercicio de gimnasia, cuya ejecución consiste en levantar el
+                cuerpo, pendiendo de una barra de dominadas, el agarre a ésta puede ser supinado (o sea que las
+                palmas de tus manos miren hacia ti) o pronado (con las palmas hacia el exterior), o, incluso, mixto
+                o simple (es decir, con una mano), partiendo de la posición de reposo en la que los brazos se
+                encuentran totalmente estirados, elevar el cuerpo mediante la flexión de los brazos, hasta que la
+                barbilla sobrepase a la barra sobre la cual se pende, sin elevar las piernas durante el proceso
+                (dominadas estrictas)</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos
+                iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat.
+                Temporibus, voluptatibus.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis
+                unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat
+                perspiciatis. Enim, iure!</p>
+
+        </div>
+
+
+
+        <div class="col-md-4">
+
+            <!-- Categorias -->
+            <div class="card my-4">
+                <h5 class="card-header">Categorias por nivel</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul class=" mb-0">
+                                <li>
+                                    <a style="color: rgb(14, 14, 218) !important;" href="#principiantes">Principiante</a>
+                                </li>
+                                <li>
+                                    <a style="color: rgb(14, 14, 218) !important;" href="#intermedio">Intermedio</a>
+                                </li>
+                                <li>
+                                    <a style="color: rgb(14, 14, 218) !important;" href="#avanzado">Avanzado</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.row -->
+
+</div>
+{% endblock contenido %}
+    

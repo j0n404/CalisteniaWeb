@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+
+{% block js %}
+<script>
+    function eliminarPost(id){
+        Swal.fire({
+            'title': 'Confirmación',
+            'text': '¿Estás seguro de eliminar esta publicación?',
+            'icon': 'question',
+            'showCancelButton': true,
+            'confirmButtonColor': '#28a745',
+            'cancelButtonColor': '#d33',
+            'confirmButtonText': 'Sí, eliminar publicación',
+    
+            'cancelButtonText': 'Cancelar'
+    
+        }).then(function(result){
+            if (result.isConfirmed){
+                window.location.href='/eliminar-post/'+id+'/'
+            }
+        })
+    }
+    
+    </script>
+{% endblock js %}
+    
+
+{% block contenido %}
+<div style="margin-top: 58px;" class="container">
+    <!-- Portfolio Item Heading -->
+    <div>
+
+        <h2 class="">{{post.titulo}} </h2>
+
+    </div>
+
+    <h6><small> {{post.created}} </small></h6>
+
+
+    <div class="row">
+
+        <div class="col-md-8">
+            <img class="img-fluid" src="/media/{{post.foto_post}}" height="500" width="750" alt="">
+        </div>
+
+        <div class="col-md-4">
+            <h3 class="my-3">Descripción</h3>
+            <p>{{post.descripcion}}</p>
+
+        </div>
+    </div>
+
+    <div class="row mt-3 ">
+        <div class="col col-md-8 d-flex justify-content-end">
+            <a href=" {% url 'editar_post' id=post.id  %}" class="btn btn-info ">Editar <i class="fas fa-edit"></i></a> 
+            <a href="#" onclick="eliminarPost({{post.id}})" class="btn btn-danger  ml-1">Eliminar <i class="fas fa-trash-alt"></i></a>
+        </div>
+    </div>
+    {% endblock contenido %}

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/style_login.css'%}">
+{% endblock css %}
+
+
+
+{% block title %}
+Iniciar sesión
+{% endblock title %}
+
+
+
+
+
+
+{% block contenido %}
+
+
+
+
+
+
+
+<div class="login-box">
+    <img class="avatar" src="{% static 'img/logo.png'%}" alt="Logo">
+
+    <h1>Iniciar sesión</h1>
+
+
+    <form id="form-login" method="POST">
+        <!-- Usuario-->
+        {% csrf_token %}
+        <label for="username">Usuario</label>
+        <input type="text" placeholder="Ingrese Usuario" name="usuarioLogin">
+
+
+        <!--Contraseña-->
+
+        <label for="password">Contraseña</label>
+
+        <input type="password" placeholder="Ingrese Contraseña" name="contraseñaLogin">
+
+        <input type="Submit" value="Iniciar Sesión">
+        {% if error %}
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: '{{error}}', 
+                    timer: 3000
+                })
+            </script>
+        {% endif %}
+
+        <a href="{% url 'registro'  %}">¿No tienes una cuenta?. Registrate aquí</a>
+    </form>
+    <br>
+
+
+
+</div>
+
+
+
+
+
+{% endblock contenido %}
+
+
+
+
+
+<!-- Scripts -->
+
+
+</body>
+
+</html>

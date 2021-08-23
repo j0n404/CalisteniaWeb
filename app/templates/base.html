@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es-cl">
+{%load static%}
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script src="https://kit.fontawesome.com/dc320c12ea.js"></script>
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/.css/style_ejercicios'%}">
+
+
+    
+    {% block js %}
+        
+    {% endblock js %}
+        
+    <title>
+        {% block title %}
+        Calistenia
+        {% endblock title %}
+    </title>
+
+
+
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+       
+        
+
+
+
+
+{% block css %}
+    <link rel="stylesheet" href="style.css">
+{% endblock css %}
+
+</head>
+
+<body>
+
+    <!-- Barra de navegacion -->
+    <!-- Barra de navegacion -->
+{% include 'nav.html' %}
+
+
+    {% block contenido %}
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae eligendi sint vero dignissimos dolorum. Qui blanditiis excepturi ipsam eum reprehenderit quaerat vitae quam, consequatur earum omnis perspiciatis praesentium, totam dolor. Ullam consectetur autem facilis deleniti explicabo beatae veritatis. Obcaecati ipsa delectus distinctio quia sit repellendus aspernatur culpa ipsum dolores, debitis inventore quibusdam doloribus ratione tempore dolorem nisi veritatis dolore optio temporibus voluptatibus eligendi. Eligendi eaque nam illum rerum. Vitae quia quod repellat illum a explicabo ducimus aspernatur ipsa, praesentium accusamus id amet veritatis velit tempore soluta ipsam possimus fuga maiores odio quisquam ab unde dolor aperiam. Mollitia deserunt maiores doloribus!</p>
+    {% endblock contenido %}
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
